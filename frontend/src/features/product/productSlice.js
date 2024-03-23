@@ -3,7 +3,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 export const fetchAllProducts = createAsyncThunk(
     "products/fetchAllProducts",
     async (params) => {
-        let url = `http://localhost:8000/products${(params && params.length > 0) ? "?"+params.map(param => `${param[0]}=${param[1]}`).join("&") : ""}`;
+        let url = `${process.env.REACT_APP_BACKEND_URL}/products${(params && params.length > 0) ? "?"+params.map(param => `${param[0]}=${param[1]}`).join("&") : ""}`;
         let response = await (fetch(url))
         let [products, brands, categories, sort] = await response.json().then(data => [data.products, data.brands, data.categories, data.sort])
         let totalItems = response.headers.get("X-Total-Count")

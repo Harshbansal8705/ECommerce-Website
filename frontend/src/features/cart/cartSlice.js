@@ -4,7 +4,7 @@ export const fetchItemsAsync = createAsyncThunk(
     "cart/fetchItems",
     async (userId) => {
         try {
-            let response = await fetch(`http://localhost:8000/cart`, {
+            let response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/cart`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token") ? localStorage.getItem("token") : null}`
                 }
@@ -24,7 +24,7 @@ export const fetchItemsAsync = createAsyncThunk(
 export const addToCartAsync = createAsyncThunk(
     "cart/addToCart",
     async (data) => {
-        return await fetch("http://localhost:8000/cart", {
+        return await fetch(`${process.env.REACT_APP_BACKEND_URL}/cart`, {
             method: "post",
             body: JSON.stringify(data),
             headers: {
@@ -38,7 +38,7 @@ export const addToCartAsync = createAsyncThunk(
 export const updateCartAsyc = createAsyncThunk(
     "cart/updateCart",
     async ([userId, itemId, newValue]) => {
-        let response = await fetch("http://localhost:8000/cart", {
+        let response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/cart`, {
             method: "PATCH",
             body: JSON.stringify({
                 item: itemId,
@@ -67,7 +67,7 @@ export const deleteFromCart = createAsyncThunk(
         console.log("productId")
         console.log(itemId)
         console.log("productId")
-        let response = await fetch(`http://localhost:8000/cart`, {
+        let response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/cart`, {
             method: "DELETE",
             body: JSON.stringify({
                 user: userId,
@@ -90,7 +90,7 @@ export const deleteFromCart = createAsyncThunk(
 export const clearCart = createAsyncThunk(
     "cart/clearCart",
     async (userId) => {
-        let response = await fetch("http://localhost:8000/cart", {
+        let response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/cart`, {
             method: "delete",
             body: JSON.stringify({
                 user: userId

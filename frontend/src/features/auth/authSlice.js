@@ -3,7 +3,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 export const createUserAsync = createAsyncThunk(
     "users/createUser",
     async (userData) => {
-        const response = await fetch("http://localhost:8000/users", {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/users`, {
             method: "POST",
             body: JSON.stringify(userData),
             headers: { 'content-type': 'application/json' }
@@ -19,7 +19,7 @@ export const createUserAsync = createAsyncThunk(
 export const loginAsync = createAsyncThunk(
     "users/login",
     async (data) => {
-        const response = await fetch("http://localhost:8000/login", {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/login`, {
             method: "POST",
             body: JSON.stringify(data),
             headers: { 'content-type': 'application/json' }
@@ -35,7 +35,7 @@ export const loginAsync = createAsyncThunk(
 export const fetchUserDetails = createAsyncThunk(
     "users/getUserDetails",
     async (userId) => {
-        const response = await fetch(`http://localhost:8000/users`, {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/users`, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`
             }
@@ -52,7 +52,7 @@ export const fetchUserDetails = createAsyncThunk(
 export const addAddressAsync = createAsyncThunk(
     "addresses/addAddress",
     async (data) => {
-        const response = await fetch("http://localhost:8000/users/", {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/users/`, {
             method: "PATCH",
             headers: {
                 "content-type": "application/json",

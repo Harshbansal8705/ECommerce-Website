@@ -18,7 +18,7 @@ export default function ProductDetails({ product }) {
 
     React.useEffect(() => {
         if (user) {
-            fetch("http://localhost:8000/productInCart", {
+            fetch(`${process.env.REACT_APP_BACKEND_URL}/productInCart`, {
                 method: "post",
                 headers: {
                     "content-type": "application/json",

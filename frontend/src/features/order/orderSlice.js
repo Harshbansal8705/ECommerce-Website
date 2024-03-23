@@ -3,7 +3,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 export const createOrderAsync = createAsyncThunk(
     "order/createOrder",
     async (data) => {
-        const response = await fetch("http://localhost:8000/orders", {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/orders`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

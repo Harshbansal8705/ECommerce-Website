@@ -9,7 +9,7 @@ export default function ProductDetailsPage() {
     const [loading, setLoadingStatus] = React.useState(false)
     React.useEffect(() => {
         setLoadingStatus(true)
-        fetch(`http://localhost:8000/products/${id}`)
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/products/${id}`)
             .then(response => response.json())
                 .then(data => {
                     setProduct(data)
