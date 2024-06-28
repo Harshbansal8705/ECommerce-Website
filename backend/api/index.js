@@ -1,12 +1,12 @@
 const express = require("express")
 const mongoose = require("mongoose");
 const cors = require("cors");
-const { login, createUser, addAddress, fetchUserDetails } = require("./controller/user");
-const { cartRouter } = require("./controller/cart");
-const { Cart } = require("./model/Cart");
-const { createOrder, getOrders } = require("./controller/order");
-const authenticateToken = require("./middlewares/auth");
-const { getProducts, getProductById, createProduct } = require("./controller/product");
+const { login, createUser, addAddress, fetchUserDetails } = require("../controller/user");
+const { cartRouter } = require("../controller/cart");
+const { Cart } = require("../model/Cart");
+const { createOrder, getOrders } = require("../controller/order");
+const authenticateToken = require("../middlewares/auth");
+const { getProducts, getProductById, createProduct } = require("../controller/product");
 require("dotenv").config()
 
 const app = express();
