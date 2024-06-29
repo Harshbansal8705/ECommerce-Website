@@ -110,8 +110,8 @@ export default function ProductDetails({ product }) {
                     </div>
                     <div className="aspect-h-5 aspect-w-4 lg:aspect-h-4 lg:aspect-w-3 sm:overflow-hidden sm:rounded-lg">
                         <img
-                            src={product.images[3]}
-                            alt={product.images[3]}
+                            src={product.images[3] || product.thumbnail}
+                            alt={product.images[3] || product.thumbnail}
                             className="h-full w-full object-cover object-center"
                         />
                     </div>
