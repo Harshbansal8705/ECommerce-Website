@@ -16,9 +16,7 @@ const navigation = [
     { name: 'Dashboard', href: '/', current: false }
 ]
 const userNavigation = [
-    { name: 'Your Profile', href: '#' },
-    { name: 'Settings', href: '#' },
-    { name: 'Sign out', href: '#' },
+    { name: 'Sign out', href: '/logout' },
 ]
 
 function classNames(...classes) {
